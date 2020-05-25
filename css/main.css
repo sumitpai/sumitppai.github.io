@@ -1,0 +1,61 @@
+
+section {
+  display: block;
+  margin: 0 auto;
+}
+
+section {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;    
+}
+
+section div{
+  height: 100%;
+  width: 100%;
+  font-size: 8vw;
+}
+
+.heading{
+
+	position: fixed; 
+	top: 0; 
+	width: 100%; 
+	height: 15%;
+}
+
+.content {
+  padding: 10%;
+}
+
+.heading + .content{
+	padding-top: 25%;
+
+	}
+
+  .blue-contrast-content{
+    background-color: #004080;
+    color: white;
+
+  }
+  
+  .blue-content{
+    background-color: #00004d; /*#004080;*/
+    color: white;
+  }
+
+.img-container{
+  width: 150px;
+  height: 150px;
+}
+
+.img-container img {
+    width: auto;
+    height: 100%;
+}
+
+
+.img-text-class{
+  padding-left: 5%;
+}

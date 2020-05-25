@@ -1,0 +1,210 @@
+<html>
+	<head>
+		<title>ECAI Tutorials: Knowledge Graph Embeddings</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<script src="js/main.js"></script>
+	</head>
+
+	<body>
+
+		<div id="sidebar" class="w3-sidebar w3-bar-block w3-light-grey w3-card w3-animate-left" style="display:none">
+			<div class="inner">
+				<nav>
+					<button class="w3-bar-item w3-button w3-large" onclick="sidebar_close()">Hide &times;</button>
+					<a href="#Abstract" class="w3-bar-item w3-button" onclick="domefn(this); return dalse;">Abstract</a>
+					<a href="#Intro" class="w3-bar-item w3-button" onclick="domefn(this)">Intro</a>
+					<a href="#Prerequisites" class="w3-bar-item w3-button" onclick="domefn(this)">Prerequisites</a>
+					<a href="#Audience" class="w3-bar-item w3-button" onclick="domefn(this)">Audience</a>
+					<a href="#Details" class="w3-bar-item w3-button" onclick="domefn(this)">Other Details</a>
+					<a href="#Goal" class="w3-bar-item w3-button" onclick="domefn(this)">Goal of the Tutorial</a>
+					<a href="#Novelty" class="w3-bar-item w3-button" onclick="domefn(this)">Novelty</a>
+					<a href="#Outline" class="w3-bar-item w3-button" onclick="domefn(this)">Detailed Outline</a>
+					<a href="#Material" class="w3-bar-item w3-button" onclick="domefn(this)">Material</a>
+					<a href="#Presenters" class="w3-bar-item w3-button" onclick="domefn(this)">Presenters</a>
+					
+				</nav>
+			</div>
+		</div>
+
+
+		<div class="w3-teal heading" id="main_title">
+				  	<button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="sidebar_open()">&#9776;</button>
+				  	<div style="position: absolute; bottom:0; ">
+				    	<h1>&nbsp&nbsp&nbsp&nbsp&nbspKnowledge Graph Embeddings: From Theory to Practice</h1>
+				    	<h5>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="https://ecai2020.eu/">ECAI 2020</a> Tutorials (August 29-30, 2020)</h5>
+				    </div>
+		</div>
+		<section id="main">
+
+				<div id="Abstract" class="w3-white content">
+				  
+				      <h1>Abstract</h1>
+				      <h5 class="w3-padding-32">Knowledge graph embeddings are supervised learning models that learn vector representations of nodes and edges of labeled, directed multigraphs.  We  describe  their  design  rationale,  and  explain  why they are receiving growing attention within the burgeoning graph representation learning community. We highlight their limitations, open research directions, and real-world applicative scenarios. Besides a theoretical overview, we also provide a hands-on session, where we show how to use such models in practice.
+				      </h5>				    
+				</div>
+
+
+				<div id="Intro" class="w3-light-grey content">
+				  
+				      <h1>Introduction</h1>
+				      <h5 class="w3-padding-32">
+				      	<p>
+				      		Knowledge graphs are graph-based knowledge bases whose facts are modeled as labeled, directed relationships between entities. Whether it  is  a  social  network,  a  bioinformatics  dataset,  or  retail  purchase data, modelling knowledge as a graph lets organizations capture patterns that would otherwise be overlooked. Knowledge graph representation research led to broadscope graphs such as DBpedia [1], WordNet  [9],  and  YAGO  [11].  Countless  domain-specific  knowledge  graphs  have  also  been  published  on  the  web,  giving  birth  tothe so-called Web of Data [2]. Nevertheless, such graphs are oftenincomplete, or they are underused when it comes to leverage theirwealth of relational information to discover new knowledge. Knowledge graph embeddings (KGE) are a family of graph representation learning models that learn vector representations (i.e. embeddings) ofnodes and edges of a knowledge graph. Such knowledge graph embeddings have applications in graph completion, knowledge discovery, entity resolution, and link-based clustering, just to cite a few [8].
+				      	</p>
+				      	<p>
+
+					      The tutorial highlights the challenges and opportunities of knowledge discovery tasks from knowledge graphs with KGE models. We describe their design rationale and explain why such models are receiving growing attention within the burgeoning graph representationlearning community. We provide a walkthrough of the most salient components of the architecture of such models, including a detailed description of the most popular varieties published in literature. We also describe best practices to train and optimize hyper-parameters. We describe the community agreed upon quality metrics, and we describe  the  evaluation  protocols  adopted  in  literature.  Particular  attention  is  given  to  fair  evaluation  and  reproducibility.  The  tutorial also highlights limitations, open research directions, real-world applicative scenarios, and differences with other closely-related graph representation  learning  paradigms,  such  as  graph  neural  netowrks. Besides a theoretical overview, we review recent software libraries in the domain, and we also provide a hands-on session, where we show how to use KGE models in practice
+					  </p>
+				  </h5>
+				</div>
+
+				<div id="Prerequisites" class="w3-white content">
+				  
+				      <h1>Prerequisites</h1>
+				      <h5 class="w3-padding-32">
+				      	<p><b>Good to have:</b>    Machine    learning    fundamentals,    graph-based knowledge representation.</p>
+				      	<p><b>Optional:</b>  Knowledge  graphs,  principles  of  relational  learning, neuro-symbolic integration, Semantic Web, scientific Python. Familiarity with TensorFlow is helpful but definitely not required.</p>
+
+				      	<p>We will provide a brief recap of the required background knowledgeduring the tutorial</p>
+				      </h5>		
+				</div>
+
+				<div id="Audience" class="w3-light-grey content">
+				      <h1>Target Audience</h1>		   
+				      <h5 class="w3-padding-32"> 
+				      <p>The target audience is the general ECAI audience who is interested in knowledge representation and reasoning, machine learning, and natural language processing.</p> 
+				      <p>That includes artificial intelligence scientists, engineers, and students familiar with neural networks fundamentals and eager to know insights of graph representation learning for knowledge graphs. Researchers from graph-based knowledge representation (e.g. SemanticWeb, Linked Data) and NLP also qualify as target audience.</p>
+				      <p>The tutorial is of interest for either academic research and industry practitioners.</p>
+				</div>
+
+				<div id="Details" class="w3-white content">
+				  
+				      <h1>Other Details</h1>
+				      <h5 class="w3-padding-32">
+				      <p><b>Proposed Format:</b> Standard (Half-day)</p>
+				      <p><b>Estimated Audience:</b> 50-70 participants</p>
+				      <p><b>Presentation Style: </b> Slide deck presentation and Jupyter notebook/Colab tutorials for thehands-on session.</p>
+				      <p><b>Requirements: </b> Projector,  Wireless  Internet  connection.  Attendees interested in actively following the hands-on session should be equipped with a laptop.</p>
+				</div>
+
+				<div id="Goal" class="w3-light-grey content">
+				  
+				      <h1>Goal</h1>
+				      <h5 class="w3-padding-32">The goal of the tutorial is to provide answers to the following questions:
+				      	<ol>
+				      		<li><i>(What is it?) </i> What  are  knowledge  graph  embedding  models(KGE),  Which  machine  learning  paradigm  do  they  belong  to? How do they stand against prior art? </li>
+				      		<li><i>(Why is it relevant?) </i> Why are knowledge graph embeddings important? What are the motivations to adopt such paradigm in applicative projects or research activities?</li>
+				      		<li><i>(Where is it critical?) </i> What are the real-world applications that benefit from learning and leveraging KGE at scale?</li>
+				      		<li><i>(How does it work?) </i> What are the most popular KGE architectures? How are they trained? How are they evaluated?</li>
+				      		<li><i>(How to use KGE models in practice?) </i> What are the existing software libraries? How to train and use embeddings? What are the best practices?</li>
+				      		<li><i>(What did we learn?) </i> What are the lessons learned and limitations in designing, implementing, evaluating, and adopting KGE architectures?</li> 
+				      		<li><i>(What next?)</i> What are some of the promising future directions inKGE research?</li>
+				      	</ol>
+				      </h5>				    
+				</div>
+
+
+				<div id="Novelty" class="w3-white content">
+				  
+				    <h1>Novelty</h1>
+				    <h5 class="w3-padding-32">
+				      	<p>
+				      		Although the area of graph representation learning has been largely studied from various angles, there has been no comprehensive tutorial focused on the growing research area of knowledge graph embedding models.
+				      	</p>
+				      	<p>
+				      		A  number  of  tutorials  cover  graph  representation  learning,  but in the past coverage has been given to automatic knowledge graph construction[1],  broad-scoped  graph  representation  learning[2] (which also includes node embeddings, graph neural networks - GNNs, and graph generative models). In other cases focus has been given exclusively on deep learning for undirected and/or single-labeled graphs[3] (mostly with GNN).
+						</p>
+						<p>
+				      		This will be the first tutorial exclusively focused on neural knowledge graph embedding models, thus putting this family of models under the spotlight for in-depth analysis and discussion of this research. The following are the main novel aspects of this first edition of the tutorial:
+				      	</p>
+				      	<ul>
+				      		<li>First tutorial aimed at putting together the most recent advancements  in  the  field  of  knowledge  graph  embedding  models,  and focused primarily on it.</li>
+				      		<li>Theoretical and hands-on coverage, with particular emphasis on why knowledge graph embedding models are useful in practical real-world applicative scenarios.</li>
+				      		<li>Survey of the most recent research questions and open points, to inspire the audience on future research directions.</li>
+				      		<li>Interplay and comparison with other graph representation learning communities, to better position KGE in the research landscape.</li> 
+				      		<li>Survey of successful applications of knowledge graph embedding projects in the wild.</li>
+				      	</ul>
+					</h5>	
+				</div>	
+
+				<div id="Outline" class="w3-light-grey content">
+				  
+				    <h1>Outline</h1>
+				    <h5 class="w3-padding-16">
+				    	<ul>	
+							<li><b>Introduction.</b> Gentle  introduction  to  knowledge  graphs,  and  why graph-based knowledge representation matters in knowledge discovery  tasks.  Motivations  for  learning  representations  of  nodes and edges, by describing the task of predicting missing links in graphs and presenting why such problem is hard to solve and requires ad-hoc machine learning models. In this part we also summarize the prerequisites for the remainder of the tutorial</li> 
+							<li><b>Anatomy of a Knowledge Graph Embedding Models</b> Description  and  walk-through  of  a  dissected  knowledge  graph embedding  model,  including  a  detailed  description  of  the  most popular varieties of components published in literature. Overview of training and best practices to optimize hyper-parameters. </li> 
+							<li><b>Evaluation Protocol and Metrics.</b> The  core  of  this  section  is  the analysis  of  quality  metrics  for  link  prediction  with  knowledge graph embedding models. We will also describe the differences in evaluation protocols in literature, and present the problem of fair evaluation and reproducibility.</li>	
+							<li><b>Comparison With Other Paradigms.</b>Comparison with traditional statistical relational learning, node embeddings, graph neural networks  (GNN):  supported  data  modalities,  underlying  intuitions, tasks, architectures, scalability.</li>
+							<li><b>Open Research Questions.</b> Discussion  of  recent  research  directions  in  the  field:  support  for  multi-modal  knowledge  graphs, more challenging datasets and benchmarks, reproducibility, time-awareness, interpretability and explanations, integration of symbolic reasoning, adversarial robustness.</li>
+							<li><b>Applications</b> Description  of  downstream  machine  learning  tasks that  benefit  from  KGE  (link  prediction  (for  knowledge  discovery and knowledge base completion), link-based clustering, entity linking, enhanced classification with background knowledge. We show real-world examples of applied KGE models. We focus on anumber of use cases: i) drug side-effect prediction from a protein network, ii) employee-jobs matching, iii) flight delay prediction,iv) generation of flavour compounds for the food industry.</li>
+							<li><b>Software Ecosystem and Hands-On Session.</b> Overview and comparison  of  most  popular  software  libraries  for  KGE  models:OpenKE [5], AmpliGraph [4], PyTorch-biggraph [7]. Hands-on session where we will learn how to generate and visualize knowledge graph embeddings by learning from a real-world knowledge graph. We will also learn how to use such embeddings in downstream machine learning tasks such as link prediction andcluster  analysis.  This  hands-on  session  will  be  carried  out  with the Apache-2 licensed, open source AmpliGraph library[4] that the authors of the tutorial designed, develop and currently maintain.</li>
+
+						</ul>
+					</h5>	
+				</div>	   
+
+				<div id="Material" class="w3-white content">
+				  
+				      <h1>Material</h1>
+				      <h5 class="w3-padding-32">
+				      <p>The material we plan to use to cover the topics in this tutorial is listed below. Content also includes presenters’ current or previous work.</p>
+				      <ul>
+				      	<li>Knowledge graph embedding models theory is covered by [3, 6, 8] and referred papers.</li>
+				      	<li>Evaluation, metrics, and open research questions discussed in [10,12].</li>
+				      	<li>Applications: projects and applicative uses cases collected internally and from literature.</li>
+				      	<li>Hands-on  session  software  is  covered  by  AmpliGraph  [4],  a  library designed and developed by the presenters. Hands-on tutorials are extended versions of AmpliGraph documentation5.</li>
+				      </h5>				    
+				</div>
+
+				<div id="Presenters" class="w3-light-grey content">
+				  
+				    <h1>Presenters</h1>
+				    <h5 class="w3-padding-32">
+			    	<table>
+		    			<tr>
+		    				<td>
+		    					<div class="img-container">
+		    						<img src='images/Luca.jpeg' />
+		    					</div>
+		    				</td>
+		    				<td class="img-text-class">
+
+					    		<p><b>Luca Costabello</b> is  research  scientist  in  Accenture  Labs  Dublin, where he leads the knowledge discovery and explainable AI research streams. His research interests span knowledge graphs applications, machine learning for graphs, and explainable AI. He is the creator of AmpliGraph, a Python library for knowledge graph embedding models. He led the organization of the first edition of the Explainable AI tutorial at AAAI-19, an event with over 200 attendees. Before joining Accenture, Luca worked as research scientist in Fujitsu Ireland, where he focused on knowledge discovery  from  graph-based  knowledge  bases  in  various  industry  scenarios.  He  obtained  a  PhD  in  computer  science  from  the  University  of  Nice  Sophia  Antipolis  (France),  during  a  stint  at  the French Institute for Research in Computer Science (Inria), wherehe focused on context-aware consumption of Linked Data. He previously  worked  as  research  engineer  at  Telecom  Italia  in  Turin(Italy), mostly on data mining for location-based services. He received an MSc and a BSc in computer engineering from the Polytechnic University in Turin. Luca is the author of publications inacademic conferences, such as ICLR, ISWC, ECAI, WWW, Hypertext, and ESWC, and serves as program committee member for conferences (ECAI, IJCAI, WWW, ISWC, ESWC, EKAW) and journals (Semantic Web Journal - SWJ). His updated publication list is available <a href="https://luca.costabello.info">here</a>.</p>
+					    	</td>
+				    	</tr>
+			    		<tr>
+			    			<td>
+			    				<div class="img-container">
+		    						<img src='images/Sumit.jpeg' />
+		    					</div>
+		    				</td>
+		    				<td class="img-text-class">
+				    			<p><b>Sumit Pai </b>is a research engineer at Accenture Labs Dublin. His research interests include knowledge graphs, representational learning, computer vision and its applications. Sumit has also worked as an engineer (Computer Vision) at Robert Bosch, India. He has done his Masters in Neural Information Processing from University of Tübingen, Germany
+				    				<br>
+				    			</p>
+				    		</td>
+			    		</tr>
+						<tr>
+							<td>
+		    					<div class="img-container">
+		    						<img src='images/Nick.png' />
+		    					</div>
+		    				</td>
+		    				<td class="img-text-class">
+								<p><b>Nicholas McCarthy</b> is a research scientist at Accenture Labs. He holds  a  Bachelors  in  Computer  Science  and  a  PhD  in  Medical Imaging  from  University  College  Dublin.  Prior  to  joining  Accenture  Labs  Nicholas  worked  at  the  INSIGHT  Research  Center and the Complex and Adaptive Systems Laboratory in UCD, where he was a Teaching Assistant for a number of BSc and MSc Courses including: Intro. to A.I., Intro. to Image Analysis, Compiler Construction, and Software Engineering. He is a contributor to the open source AmpliGraph library for knowledge graph embeddings, and has significant experience applying these methods in industrial applications. His research interests include computer vision, and graph representation learning. Recent work has been published at SIGGRAPH and IAAI.</p>
+							</td>
+						</tr>
+					</table>
+
+				    </h5>				    
+				</div>
+
+				
+
+		</section>
+	</body>
+</html>
